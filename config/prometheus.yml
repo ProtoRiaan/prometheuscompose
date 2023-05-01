@@ -82,7 +82,7 @@ scrape_configs:
       - dns_google
   static_configs:
   - targets:
-    - 8.8.8.8
+    - "8.8.8.8"
 
 - job_name: blackbox-tcp
   metrics_path: /probe
@@ -108,3 +108,9 @@ scrape_configs:
       target_label: instance
     - target_label: __address__
       replacement: 192.168.222.14:9115
+
+- job_name: 'github-exporter'
+  scrape_interval: 1m
+  static_configs:
+  - targets:
+    - 192.168.222.14:9171
