@@ -109,8 +109,8 @@ scrape_configs:
     - target_label: __address__
       replacement: 192.168.222.14:9115
 
-- job_name: 'github-exporter'
-  scrape_interval: 1m
+- job_name: 'push-gateway'
+  honor_labels: true
   static_configs:
   - targets:
     - 192.168.222.14:9171
