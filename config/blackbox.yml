@@ -1,4 +1,10 @@
 modules:
+  http_redflagdeals:
+    prober: http
+    http:
+      preferred_ip_protocol: ip4
+      fail_if_body_not_matches_regexp:
+        - "sale"
   http_2xx_ipv4:
     prober : http
     http:

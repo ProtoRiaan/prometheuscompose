@@ -92,3 +92,19 @@ scrape_configs:
   static_configs:
   - targets:
     - 192.168.222.14:5000
+
+- job_name: redlagsale
+  metrics_path: /probe
+  params:
+    module: 
+      - http_redflagdeals
+  static_configs:
+  - targets:
+    - "https://www.redflagdeals.com"
+  relabel_configs:
+    - source_labels: [__address__]
+      target_label: __param_target
+    - source_labels: [__param_target]
+      target_label: instance
+    - target_label: __address__
+      replacement: 192.168.222.14:9115
